@@ -3,6 +3,7 @@ import './App.css';
 import { GlobalStyle } from './styles/GlobalStyle';
 import Quote from './section/Quote';
 import HeroSection from './section/HeroSection';
+import PhoneModel from './section/PhoneModel';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <GlobalStyle/> 
       <Quote/>
       <HeroSection/>
+      <PhoneModel/>
     </>
   );
 }
