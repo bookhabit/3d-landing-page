@@ -6,6 +6,8 @@ import { Suspense } from 'react';
 import { useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import { Model2 } from '../components/Scene2';
+import { useContext } from 'react';
+import { ColorContext } from '../context/ColorContext';
 
 const Section = styled.section`
   width: 100vw;
@@ -58,6 +60,8 @@ const ColorSection = () => {
     const leftRef = useRef(null);
     const textRef = useRef(null);
 
+    const { currentColor, changeColorContext } = useContext(ColorContext);
+
     const { nodes, materials } = useGLTF('/scene.gltf')
 
     useLayoutEffect(()=>{
@@ -67,14 +71,18 @@ const ColorSection = () => {
         let textElem = textRef.current;
 
         let updateColor = (color,text,rgbColor)=>{
+            const colorObj = {
+              color,
+              text,
+              rgbColor,
+            };
+            changeColorContext(colorObj);
 
-            materials.Body.color.set(color);
+            textElem.innerText = colorObj.text;
+            textElem.style.color = colorObj.color
 
-            textElem.innerText = text;
-            textElem.style.color = color
-
-            rightElem.style.backgroundColor = `rgba(${rgbColor},0.4)`
-            leftElem.style.backgroundColor = `rgba(${rgbColor},0.8)`
+            rightElem.style.backgroundColor = `rgba(${colorObj.rgbColor},0.4)`
+            leftElem.style.backgroundColor = `rgba(${colorObj.rgbColor},0.8)`
         }
 
      // pin the section

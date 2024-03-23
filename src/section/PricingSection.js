@@ -8,6 +8,7 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
+import { ColorContext } from "../context/ColorContext";
 
 const Container = styled.div`
   width: 100vw;
@@ -130,13 +131,21 @@ const PricingSection = () => {
     const sectionRef = useRef(null);
 
     const { materials } = useGLTF('/scene.gltf')
+    const {currentColor,changeColorContext} = useContext(ColorContext)
+
+    useEffect(() => {
+        sectionRef.current.style.backgroundColor = `rgba(${currentColor.rgbColor},0.4)`;
+    }, [currentColor]);
+    
 
     let updateColor = (color, text, rgbColor) => {
-        materials.Body.color.set(color)
+        const colorObj = {
+            color,
+            text,
+            rgbColor
+        }
 
-        sectionRef.current.style.backgroundColor = `
-            rgba(${rgbColor},0.4)
-        `
+        changeColorContext(colorObj)
     };
   return (
     <Container>
