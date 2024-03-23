@@ -6,6 +6,7 @@ import HeroSection from './section/HeroSection';
 import PhoneModel from './section/PhoneModel';
 import DesignSection from './section/DesignSection';
 import DisplaySection from './section/DisplaySection';
+import ProcessorSection from './section/ProcessorSection';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <HeroSection/>
       <DesignSection/>
       <DisplaySection/>
+      <ProcessorSection/>
     </>
   );
 }
