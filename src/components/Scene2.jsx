@@ -9,28 +9,17 @@ Title: Apple iPhone 13 Pro Max
 
 import React, { useLayoutEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import gsap from 'gsap'
 import { useThree } from '@react-three/fiber'
 
-export function Model(props) {
+export function Model2(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/scene.gltf')
 
   let camera = useThree(state=>state.camera)
 
   useLayoutEffect(()=>{
-
-    let t1 = gsap.timeline({
-      scrollTrigger:{
-        trigger:"#phone-model",
-        start:"top top",
-        end:"bottom+=500 bottom",
-        markers:true,
-      }
-    })
-
-    t1.fromTo(camera.position,{y:2},{y:0})
-    
+    camera.position.set(-0.1,0.4,5)
+    materials.Body.color.set("#9BB5CE")
 
   },[])
 

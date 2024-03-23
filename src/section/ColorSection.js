@@ -1,7 +1,11 @@
+import { Environment, useGLTF,Lightformer, OrbitControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 import gsap from 'gsap';
 import React, { useRef } from 'react'
+import { Suspense } from 'react';
 import { useLayoutEffect } from 'react';
 import styled from 'styled-components';
+import { Model2 } from '../components/Scene2';
 
 const Section = styled.section`
   width: 100vw;
@@ -54,6 +58,8 @@ const ColorSection = () => {
     const leftRef = useRef(null);
     const textRef = useRef(null);
 
+    const { nodes, materials } = useGLTF('/scene.gltf')
+
     useLayoutEffect(()=>{
         let Elem = sectionRef.current;
         let rightElem = rightRef.current;
@@ -61,6 +67,9 @@ const ColorSection = () => {
         let textElem = textRef.current;
 
         let updateColor = (color,text,rgbColor)=>{
+
+            materials.Body.color.set(color);
+
             textElem.innerText = text;
             textElem.style.color = color
 
@@ -134,9 +143,19 @@ const ColorSection = () => {
   return (
     <Section ref={sectionRef}>
       <Left ref={leftRef} />
-      <Center ref={textRef}>Sierra Blue</Center>
+      <Center ref={textRef}/>
       <Right ref={rightRef}>
-        
+        <Canvas camera={{fov:8.5}}>
+            <ambientLight intensity={1.25}/>
+            <directionalLight position={[0.4]}/>
+            <Suspense fallback={null}>
+                <Model2/>
+            </Suspense>
+            <Environment>
+                <Lightformer form="ring" />
+            </Environment>
+            {/* <OrbitControls/> */}
+        </Canvas>
       </Right>
     </Section>
   )

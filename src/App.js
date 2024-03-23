@@ -15,7 +15,7 @@ function App() {
     <>
       <GlobalStyle/> 
       <Quote/>
-      {/* <PhoneModel/> */}
+      <PhoneModel/>
       <HeroSection/>
       <DesignSection/>
       <DisplaySection/>
