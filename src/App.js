@@ -7,6 +7,7 @@ import PhoneModel from './section/PhoneModel';
 import DesignSection from './section/DesignSection';
 import DisplaySection from './section/DisplaySection';
 import ProcessorSection from './section/ProcessorSection';
+import BatterySection from './section/BatterySection';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <DesignSection/>
       <DisplaySection/>
       <ProcessorSection/>
+      <BatterySection/>
     </>
   );
 }
