@@ -8,19 +8,31 @@ const Section = styled.section`
   position: relative;
   
   display:flex;
+  justify-content:flex-end;
+  align-items:center;
   background-color:var(--dark);
   overflow:hidden;
 `
 
 const Title = styled.h1`
-  position:absolute;
-  top:2rem;
-  left:2rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
 
-  font-size:var(--fontlg);
-  font-family:var(--fontL);
-  color:var(--greyLight)
-`
+  font-size: var(--fontlg);
+  font-family: var(--fontL);
+  color: var(--greyLight);
+
+  @media screen and (max-width: 48em) {
+    font-size: var(--fontmd);
+    left: 1rem;
+  }
+
+  @media screen and (max-width: 30em) {
+    width: 70%;
+    color: var(--white);
+  }
+`;
 
 const TextContainer = styled.div`
   width:100%;
@@ -41,6 +53,28 @@ const TextContainer = styled.div`
     text-transform:uppercase;
     font-weight:600;
     padding:2rem;
+
+    @media screen and (max-width: 64em) {
+      font-size: var(--fontxxl);
+      padding: 0;
+    }
+    @media screen and (max-width: 48em) {
+      font-size: var(--fontxl);
+    }
+  }
+
+  @media screen and (max-width: 48em) {
+    flex-direction: column;
+    background-image: linear-gradient(90deg, var(--gradient));
+    align-items: flex-start;
+    filter: brightness(1.1);
+
+    & > *:last-child {
+      align-self: flex-end;
+    }
+
+    height: 80vh;
+    padding: 0 1rem;
   }
 `
 

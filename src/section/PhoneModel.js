@@ -2,7 +2,7 @@ import React from 'react'
 import {Canvas} from "@react-three/fiber";
 import {Environment, Lightformer, OrbitControls} from "@react-three/drei"
 import styled from 'styled-components';
-import { Model } from '../components/Scene';
+import  Model  from '../components/Scene';
 import { Suspense } from 'react';
 
 const Container = styled.section`

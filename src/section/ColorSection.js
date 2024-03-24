@@ -27,6 +27,9 @@ const Left = styled.div`
   background-color: rgba(155, 181, 206, 0.8);
   position: relative;
 
+  @media screen and (max-width: 48em) {
+    width: 100%;
+  }
   
 `;
 const Right = styled.div`
@@ -37,7 +40,9 @@ const Right = styled.div`
   background-color: rgba(155, 181, 206, 0.4);
   position: relative;
 
-  
+  @media screen and (max-width: 48em) {
+    display: none;
+  }
 `;
 
 const Center = styled.div`
@@ -51,7 +56,10 @@ const Center = styled.div`
   text-transform: uppercase;
   filter: brightness(0.85);
 
-  
+  @media screen and (max-width: 48em) {
+    top: 2rem;
+    transform: translate(-50%, 0%) rotate(0deg);
+  }
 `;
 
 const ColorSection = () => {
