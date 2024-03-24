@@ -1,7 +1,7 @@
 # Create an awesome 3d Landing Page for iphone in React JS
 
 View Demo👇: <br />
-https://apple-iphone14.vercel.app/ <br />
+https://iphone-3d-landing-page.vercel.app/ <br />
 
 Clone Coding 👇: <br />
 https://youtu.be/cT160dOzpGY <br />
